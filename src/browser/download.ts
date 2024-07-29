@@ -16,4 +16,14 @@ const downloadMedia = ({ url, fileName }: DownloadMediaProps) => {
         });
 };
 
-export { downloadMedia }
+const download = ({ url, fileName }: DownloadMediaProps) => {
+    const aElement = document.createElement('a');
+    aElement.style.display = 'none';
+    aElement.href = url;
+    aElement.download = fileName || getFilename(url);
+    document.body.appendChild(aElement);
+    aElement.click();
+    document.body.removeChild(aElement);
+};
+
+export { downloadMedia, download }
