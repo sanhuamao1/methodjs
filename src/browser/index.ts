@@ -1,7 +1,7 @@
 import { getFileName } from '../utils'
-import { DownloadMediaProps } from './types'
+type DownloadFunction = (url: string, fileName?: string) => void;
 
-export const download = ({ url, fileName }: DownloadMediaProps) => {
+export const download: DownloadFunction = (url, fileName) => {
     const aElement = document.createElement('a');
     aElement.style.display = 'none';
     aElement.href = url;
@@ -12,7 +12,7 @@ export const download = ({ url, fileName }: DownloadMediaProps) => {
 };
 
 
-export const downloadMedia = ({ url, fileName }: DownloadMediaProps) => {
+export const downloadMedia:DownloadFunction = (url, fileName) => {
     fetch(url)
         .then(response => response.blob())
         .then(blob => {
@@ -49,5 +49,3 @@ export const downloadMedia = ({ url, fileName }: DownloadMediaProps) => {
             });
     }
 };
-
-export * from './types'

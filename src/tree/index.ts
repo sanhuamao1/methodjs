@@ -1,5 +1,5 @@
 
-type GetTreeOptions = {
+type TOptions = {
     selfField?: string,
     parentField?: string
 }
@@ -11,7 +11,7 @@ type GetTreeOptions = {
  * @returns 
  */
 
-export const getTree = (list: Array<any>, options: GetTreeOptions = {}) => {
+export const getTree = (list: Array<any>, options: TOptions = {}) => {
     if (!Array.isArray(list) || list.length === 0) {
         throw new Error('Data must be a non-empty array.');
     }
